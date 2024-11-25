@@ -8,6 +8,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import Swal from 'sweetalert2';
 
 export default function TambahGuru() {
@@ -39,13 +41,10 @@ export default function TambahGuru() {
       return;
     }
 
-    // Log data yang akan dikirim
-    console.log('Data yang akan dikirim:', formguru);
-
     // Kirim data ke API
-    axios.post('http://localhost:3030/guru', formguru)
+    axios
+      .post('http://localhost:3030/guru', formguru)
       .then((response) => {
-        console.log('Response dari API:', response.data);  // Log response untuk debug
         Swal.fire({
           title: 'Berhasil!',
           text: 'Data guru berhasil ditambahkan.',
@@ -56,8 +55,6 @@ export default function TambahGuru() {
         });
       })
       .catch((error) => {
-        // Cek jika ada error dalam response
-        console.error('Error adding data:', error.response || error);
         Swal.fire({
           title: 'Gagal!',
           text: error.response?.data?.message || 'Terjadi kesalahan saat menambahkan data.',
@@ -98,21 +95,23 @@ export default function TambahGuru() {
             fullWidth
             required
           />
-          <Select
-            label="Jenis Kelamin"
-            name="jenis_kelamin"
-            value={formguru.jenis_kelamin}
-            onChange={handleChange}
-            fullWidth
-            required
-            displayEmpty
-          >
-            <MenuItem value="" disabled>
-              Pilih Jenis Kelamin
-            </MenuItem>
-            <MenuItem value="Laki-laki">Laki-laki</MenuItem>
-            <MenuItem value="Perempuan">Perempuan</MenuItem>
-          </Select>
+          {/* Select for Jenis Kelamin */}
+          <FormControl fullWidth required>
+            <InputLabel id="jenis_kelamin-label">Jenis Kelamin</InputLabel>
+            <Select
+              labelId="jenis_kelamin-label"
+              id="jenis_kelamin"
+              name="jenis_kelamin"
+              value={formguru.jenis_kelamin}
+              onChange={handleChange}
+            >
+              <MenuItem value="" disabled>
+                Pilih Jenis Kelamin
+              </MenuItem>
+              <MenuItem value="Laki-laki">Laki-laki</MenuItem>
+              <MenuItem value="Perempuan">Perempuan</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
             label="Jabatan"
             name="jabatan"

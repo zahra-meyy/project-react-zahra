@@ -10,10 +10,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField'; // Import TextField for search
 import '../Css/GuruData.css';
 
 const GuruData = () => {
   const [formguru, setformGuru] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,9 +66,28 @@ const GuruData = () => {
     navigate(`/UpdateGuru/${id}`);
   };
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Filter the data based on the search query
+  const filteredGuru = formguru.filter((guru) =>
+    guru.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    guru.mapel.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="guru-data-container">
       <h2 className="guru-data-title">Data Guru</h2>
+
+      <TextField
+        label="Search Guru"
+        variant="outlined"
+        fullWidth
+        value={searchQuery}
+        onChange={handleSearch}
+        sx={{ marginBottom: 2 }}
+      />
 
       <Button
         variant="contained"
@@ -94,7 +115,8 @@ const GuruData = () => {
         <Table>
           <TableHead sx={{ backgroundColor: '#f2f2f2' }}>
             <TableRow>
-              <TableCell><b>Nama</b></TableCell>
+              <TableCell><b>No</b></TableCell>
+              <TableCell align="center"><b>Nama</b></TableCell>
               <TableCell align="center"><b>Mapel</b></TableCell>
               <TableCell align="center"><b>NIK</b></TableCell>
               <TableCell align="center"><b>Jenis Kelamin</b></TableCell>
@@ -103,9 +125,10 @@ const GuruData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {formguru.map((guruItem) => (
+            {filteredGuru.map((guruItem, index) => (
               <TableRow key={guruItem.id} hover>
-                <TableCell>{guruItem.nama}</TableCell>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell align="center">{guruItem.nama}</TableCell>
                 <TableCell align="center">{guruItem.mapel}</TableCell>
                 <TableCell align="center">{guruItem.nik}</TableCell>
                 <TableCell align="center">{guruItem.jenis_kelamin}</TableCell>

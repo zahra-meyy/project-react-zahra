@@ -4,14 +4,14 @@ import { FaHome, FaUserAlt, FaUsers, FaBars, FaTimes } from 'react-icons/fa'; //
 import '../Css/Sidebar.css';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // State for toggling sidebar
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div>
+    <div className="sidebar">
       {/* Sidebar toggle button for small screens */}
       <div className="sidebar-toggle">
         <button onClick={toggleSidebar}>
@@ -19,10 +19,10 @@ const Sidebar = () => {
         </button>
       </div>
 
-      {/* Sidebar */}
+      {/* Sidebar content */}
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <h2>SEMUT IMUT</h2>
+          <h3>SEMUT IMUT</h3>
         </div>
         <nav className="sidebar-nav">
           <ul>

@@ -1,70 +1,52 @@
 /* Sidebar container */
 .sidebar {
-  width: 240px;
+  width: 240px; /* Default width for larger screens */
   height: 100vh;
-  background-color: #333;
-  color: #fff;
+  background-color: #F9D4E1; /* Soft Pink */
+  color: black; /* Text color for visibility */
   position: fixed;
   top: 0;
-  left: -240px;
-  transition: all 0.3s ease;
+  left: 0; /* Sidebar is always visible on larger screens */
   overflow-y: auto;
   z-index: 1000;
-}
-
-/* Open sidebar class */
-.sidebar.open {
-  left: 0;
+  transition: all 0.3s ease;
 }
 
 /* Sidebar header */
 .sidebar-header {
   padding: 16px;
   text-align: center;
-  background-color: #444;
+  color: black;
+  background-color: #F9D4E1; /* Soft Pink */
   font-size: 1.5rem;
 }
 
-/* Sidebar navigation */
-.sidebar-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-nav ul li {
-  margin: 0;
-}
-
+/* Sidebar link and hover state */
 .sidebar-link {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
+/* Sidebar link hover effect */
 .sidebar-link:hover {
-  background-color: #555;
+  background-color: #A7C7E7; /* Soft Blue on hover */
+  color: white; /* Text color change on hover */
 }
 
+/* Sidebar icon styling */
 .sidebar-icon {
   margin-right: 8px;
   font-size: 1.2rem;
 }
 
-/* Sidebar toggle button */
-.sidebar-toggle {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 1100;
-}
-
+/* Sidebar toggle button (not used anymore as sidebar is always visible) */
 .sidebar-toggle button {
-  background-color: #333;
+  background-color: #A7C7E7; /* Soft Blue */
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -73,13 +55,34 @@
   border-radius: 4px;
 }
 
-/* Responsive styles */
-@media (min-width: 768px) {
+/* Responsive Design - For small screens */
+@media screen and (max-width: 768px) {
+  /* Sidebar hidden by default on small screens */
   .sidebar {
+    width: 100%; /* Take full width on smaller screens */
+    left: -100%; /* Initially hide the sidebar off-screen */
+  }
+
+  /* Show sidebar when toggle button is clicked */
+  .sidebar.open {
     left: 0;
   }
 
-  .sidebar-toggle {
-    display: none;
+  /* Make the sidebar header and links more compact */
+  .sidebar-header {
+    font-size: 1.2rem;
+  }
+
+  .sidebar-link {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust the toggle button on mobile screens */
+  .sidebar-toggle button {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 0;
+    z-index: 1100; /* Make sure the button is above the sidebar */
   }
 }

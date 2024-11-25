@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import { Box, TextField, Button, Typography, Card, CardContent, CardActions } from '@mui/material';
+import Swal from 'sweetalert2'; // SweetAlert2 untuk alert
 
 export default function UpdateSiswa() {
   const { id } = useParams(); // Ambil ID dari parameter URL
@@ -17,17 +14,21 @@ export default function UpdateSiswa() {
     nisn: '',
     asal_sekolah: '',
   });
-  const [loading, setLoading] = useState(true); // State untuk loading
-  const [error, setError] = useState(null); // State untuk error
 
   useEffect(() => {
-    axios.get(`http://localhost:3030/siswa/${id}`)
-      .then(response => {
+    axios
+      .get(`http://localhost:3030/siswa/${id}`)
+      .then((response) => {
         setformsiswa(response.data); // Isi form dengan data dari API
       })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-        alert('Gagal memuat data. Silakan coba lagi.');
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        Swal.fire({
+          title: 'Gagal Memuat Data',
+          text: 'Silakan coba lagi.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
       });
   }, [id]);
 
@@ -43,14 +44,13 @@ export default function UpdateSiswa() {
     axios
       .put(`http://localhost:3030/siswa/${id}`, formsiswa)
       .then(() => {
-        // Menampilkan SweetAlert setelah data berhasil diperbarui
         Swal.fire({
           title: 'Berhasil!',
-          text: 'Data makanan berhasil diperbarui.',
+          text: 'Data siswa berhasil diperbarui.',
           icon: 'success',
           confirmButtonText: 'OK',
         }).then(() => {
-          navigate('/Siswa'); // Kembali ke dashboard setelah konfirmasi
+          navigate('/Siswa'); // Kembali ke halaman siswa setelah konfirmasi
         });
       })
       .catch((error) => {
@@ -66,71 +66,77 @@ export default function UpdateSiswa() {
 
   // Form untuk mengupdate data
   return (
-    <Box sx={{ maxWidth: 500, mx: 'auto', mt: 5 }}>
-      <Typography variant="h5" component="h1" gutterBottom>
-        Update Data Siswa
-      </Typography>
-      <form onSubmit={handleSubmit}>
-      <TextField
-            label="Nama Siswa"
-            name="nama"
-            value={formsiswa.nama}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-     />
-     <TextField
-            label="Kelas"
-            name="kelas"
-            value={formsiswa.kelas}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-     />
-    <TextField
-            label="Jurusan"
-            name="jurusan"
-            value={formsiswa.jurusan}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-       />
-        <TextField
-            label="NISN"
-            name="nisn"
-            value={formsiswa.nisn}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-        />
-        <TextField
-            label="Asal Sekolah"
-            name="asal_sekolah"
-            value={formsiswa.asal_sekolah}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+    <Box sx={{ maxWidth: 600, mx: 'auto', mt: 5 }}>
+      <Card sx={{ boxShadow: 3, borderRadius: 4 }}>
+        <CardContent>
+          <Typography variant="h5" component="h2" gutterBottom>
+            Update Data Siswa
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              label="Nama Siswa"
+              name="nama"
+              value={formsiswa.nama}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              required
+            />
+            <TextField
+              label="Kelas"
+              name="kelas"
+              value={formsiswa.kelas}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              required
+            />
+            <TextField
+              label="Jurusan"
+              name="jurusan"
+              value={formsiswa.jurusan}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              required
+            />
+            <TextField
+              label="NISN"
+              name="nisn"
+              value={formsiswa.nisn}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              required
+            />
+            <TextField
+              label="Asal Sekolah"
+              name="asal_sekolah"
+              value={formsiswa.asal_sekolah}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              required
+            />
+          </form>
+        </CardContent>
+        <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
           <Button
-            type="button"
             variant="outlined"
             color="secondary"
             onClick={() => navigate('/Siswa')}
           >
             Batal
           </Button>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
             Simpan
           </Button>
-        </Box>
-      </form>
+        </CardActions>
+      </Card>
     </Box>
   );
 }
-

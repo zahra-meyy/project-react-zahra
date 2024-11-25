@@ -1,87 +1,125 @@
-/* Dashboard container */
 .dashboard {
-  padding: 16px;
   text-align: center;
+  padding: 20px;
+  background-color: #f0e5ec;
+  min-height: 100vh;
 }
 
-.dashboard h2 {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
 }
 
-/* Cards container */
-.cards-container {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-items: center;
-  padding: 0 16px;
+/* Position the "Tambah" button to the left */
+.add-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-/* Card styling */
-.card {
-  background-color: #333;
-  color: #fff;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 300px;
-  padding: 16px;
+.add-button {
+  display: flex;
+  align-items: center;
+  background-color: #a1c4fd;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-button:hover {
+  background-color: #6a89cc;
+}
+
+/* Flexbox for centering the cards */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+}
+
+/* Styling each card */
+.card {
+  background-color: #a1c4fd;
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px; /* Space between cards */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.card-icon {
-  flex-shrink: 0;
-  color: #f1c40f;
-}
-
-.card h3 {
-  font-size: 1.2rem;
-  margin: 0;
+  background-color: #fbcfe8;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
 }
 
 .card-body {
-  font-size: 0.9rem;
-  color: #ddd;
+  padding: 20px;
+  color: white;
 }
 
-/* Responsive typography and spacing */
+.card-icon {
+  margin-bottom: 10px;
+}
+
+/* Media Query for Small Screens (max-width: 768px) */
 @media (max-width: 768px) {
-  .dashboard h2 {
-    font-size: 1.2rem;
+  h2 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
 
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card-body {
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .dashboard {
-    padding: 8px;
-  }
-
-  .card {
-    padding: 12px;
+  .add-button-container {
+    top: 10px;
+    left: 10px;
   }
 
   .cards-container {
-    grid-template-columns: 1fr;
+    gap: 20px; /* Reduce gap between cards */
+  }
+
+  .card {
+    width: 200px; /* Adjust card width */
+    height: 200px; /* Adjust card height */
+  }
+}
+
+/* Media Query for Very Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem; /* Adjust font size for very small screens */
+  }
+
+  .add-button {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+
+  .cards-container {
+    gap: 15px; /* Further reduce gap between cards */
+    justify-content: center; /* Keep cards centered */
+  }
+
+  .card {
+    width: 170px; /* Further reduce card width */
+    height: 170px; /* Further reduce card height */
+  }
+
+  .card-header {
+    padding: 15px; /* Reduce header padding */
+  }
+
+  .card-body {
+    padding: 15px; /* Reduce body padding */
   }
 }

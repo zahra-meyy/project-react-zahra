@@ -99,8 +99,7 @@ export default function TambahSiswa() {
           fullWidth
           required
         />
-
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
+        <Stack direction="row" spacing={2} justifyContent="flex-end">
           <Button
           variant="outlined"
           color="secondary"

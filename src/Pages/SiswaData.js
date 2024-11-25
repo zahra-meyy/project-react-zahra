@@ -10,10 +10,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';  // Import TextField for search
 import '../Css/SiswaData.css';
 
 const SiswaData = () => {
   const [formsiswa, setformsiswa] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');  // State for search query
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,9 +59,26 @@ const SiswaData = () => {
     navigate(`/UpdateSiswa/${id}`);
   };
 
+  // Filtered siswa based on search query
+  const filteredSiswa = formsiswa.filter((SiswaItem) => 
+    SiswaItem.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    SiswaItem.kelas.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    SiswaItem.jurusan.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="siswa-data-container">
       <h2 className="siswa-data-title">Data Siswa</h2>
+
+      {/* Search Field */}
+      <TextField
+        label="Cari Siswa"
+        variant="outlined"
+        fullWidth
+        sx={{ marginBottom: 2 }}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}  // Update search query
+      />
 
       <Button
         variant="contained"
@@ -97,7 +116,7 @@ const SiswaData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {formsiswa.map((SiswaItem, index) => (
+            {filteredSiswa.map((SiswaItem, index) => (
               <TableRow
                 key={SiswaItem.id}
                 hover

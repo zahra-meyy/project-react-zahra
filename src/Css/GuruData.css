@@ -1,65 +1,71 @@
-/* Container styling */
-.guru-data-container {
-  padding: 16px;
-  margin: auto;
-  max-width: 100%;
+/* Styling Tabel Siswa */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; /* Scrollable table on smaller screens */
+}
+
+th, td {
+  padding: 14px;
   text-align: center;
+  border: 1px solid #ddd;
+  font-size: 1rem; /* Default font size */
 }
 
-.guru-data-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+th {
+  background-color: #a1c4fd; /* Soft Blue */
+  color: white;
 }
 
-/* Table container styling */
-.MuiTableContainer-root {
-  margin: 0 auto;
-  max-width: 100%;
+td {
+  background-color: #fbcfe8; /* Soft Pink */
 }
 
-.MuiTableCell-root {
-  word-break: break-word;
-  white-space: normal;
-  padding: 8px;
+/* Tombol */
+button {
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #6a89cc; /* Soft Blue */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #fbcfe8; /* Soft Pink Hover */
+  transform: scale(1.1);
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
-  .guru-data-container {
-    padding: 8px;
+  th, td {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
   }
 
-  .guru-data-title {
-    font-size: 1.4rem;
-  }
-
-  .MuiTableContainer-root {
-    overflow-x: auto; /* Enable horizontal scrolling */
-  }
-
-  .MuiTableCell-root {
+  button {
+    padding: 6px 10px;
     font-size: 0.9rem;
-    padding: 6px; /* Reduce padding for smaller screens */
-  }
-
-  .MuiButton-root {
-    font-size: 0.8rem; /* Adjust button text size */
   }
 }
 
-/* Small screens */
 @media (max-width: 480px) {
-  .guru-data-title {
-    font-size: 1.2rem;
+  table {
+    display: block; /* Makes the table scrollable horizontally */
+    overflow-x: auto;
+    white-space: nowrap; /* Prevent content wrapping */
   }
 
-  .MuiTableCell-root {
+  th, td {
     font-size: 0.8rem;
-    padding: 4px;
+    padding: 8px;
   }
 
-  .MuiButton-root {
-    font-size: 0.7rem;
-    padding: 4px 8px; /* Smaller button size */
+  button {
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 }

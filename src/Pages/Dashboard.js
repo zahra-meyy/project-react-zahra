@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Css/Dashboard.css';
-import { FaUsers, FaChalkboardTeacher, FaClipboardList } from 'react-icons/fa';
+import { FaUsers, FaChalkboardTeacher, FaClipboardList, FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -14,8 +14,14 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h2>Selamat datang di Dashboard Zahra!</h2>
+      <div className="add-button-container">
+        <button className="add-button" onClick={() => navigate('/add')}>
+          <FaPlus size={20} />
+          Tambah
+        </button>
+      </div>
       <div className="cards-container">
-        <div className="card" onClick={() => goToPage('/')}>
+        <div className="card" onClick={() => goToPage('/dashboard')}>
           <div className="card-header">
             <FaClipboardList size={30} className="card-icon" />
             <h3>Dashboard</h3>

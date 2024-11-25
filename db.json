@@ -1,62 +1,46 @@
 {
   "guru": [
     {
-      "id": "4eda",
-      "nama": "yeonjun",
-      "mapel": "mtk1",
-      "nik": "1234",
-      "jenis_kelamin": "laki",
-      "jabatan": "guru"
-    },
-    {
-      "id": "99bd",
-      "nama": "ZAHRA",
-      "mapel": "matematika",
-      "nik": "67890",
-      "jenis_kelamin": "wanita",
-      "jabatan": "guru"
-    },
-    {
-      "id": "fa71",
-      "nama": "ZAHRA",
-      "mapel": "matematika",
-      "nik": "67890",
-      "jenis_kelamin": "wanita",
-      "jabatan": "guru"
-    },
-    {
-      "id": "d553",
-      "nama": "zahra123",
-      "mapel": "mtk1",
-      "nik": "12345678",
-      "jenis_kelamin": "wanita",
-      "jabatan": "guruuuu"
-    },
-    {
-      "id": "65a1",
+      "id": "9052",
       "nama": "ZAHRA",
       "mapel": "matematika",
       "nik": "67890",
       "jenis_kelamin": "Laki-laki",
-      "jabatan": "guru"
+      "jabatan": "guru "
     }
   ],
   "siswa": [
     {
-      "nama": "wwwww",
-      "kelas": "wwww",
+      "nama": "awwwww",
+      "kelas": "awwww",
       "jurusan": "ww",
       "nisn": "wwwwwawww",
       "asal_sekolah": "aaww",
       "id": "84f9"
     },
     {
-      "id": "a00c",
-      "nama": "wwwww",
-      "kelas": "wwww",
-      "jurusan": "ww",
-      "nisn": "wwwwwawww",
-      "asal_sekolah": "aaww"
+      "id": "8570",
+      "nama": "yeonjun",
+      "kelas": "x",
+      "jurusan": "tkj",
+      "nisn": "1324535r34",
+      "asal_sekolah": "ngvn"
+    },
+    {
+      "id": "f437",
+      "nama": "greyiw",
+      "kelas": "x",
+      "jurusan": "kedokteran",
+      "nisn": "4667565983",
+      "asal_sekolah": "SMK Mandala Bhakti Surakarta"
+    },
+    {
+      "id": "bda5",
+      "nama": "ZAHRA",
+      "kelas": "TK",
+      "jurusan": "tkj",
+      "nisn": "1324535r34",
+      "asal_sekolah": "thtyh"
     }
   ]
 }
