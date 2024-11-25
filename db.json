@@ -1,0 +1,62 @@
+{
+  "guru": [
+    {
+      "id": "4eda",
+      "nama": "yeonjun",
+      "mapel": "mtk1",
+      "nik": "1234",
+      "jenis_kelamin": "laki",
+      "jabatan": "guru"
+    },
+    {
+      "id": "99bd",
+      "nama": "ZAHRA",
+      "mapel": "matematika",
+      "nik": "67890",
+      "jenis_kelamin": "wanita",
+      "jabatan": "guru"
+    },
+    {
+      "id": "fa71",
+      "nama": "ZAHRA",
+      "mapel": "matematika",
+      "nik": "67890",
+      "jenis_kelamin": "wanita",
+      "jabatan": "guru"
+    },
+    {
+      "id": "d553",
+      "nama": "zahra123",
+      "mapel": "mtk1",
+      "nik": "12345678",
+      "jenis_kelamin": "wanita",
+      "jabatan": "guruuuu"
+    },
+    {
+      "id": "65a1",
+      "nama": "ZAHRA",
+      "mapel": "matematika",
+      "nik": "67890",
+      "jenis_kelamin": "Laki-laki",
+      "jabatan": "guru"
+    }
+  ],
+  "siswa": [
+    {
+      "nama": "wwwww",
+      "kelas": "wwww",
+      "jurusan": "ww",
+      "nisn": "wwwwwawww",
+      "asal_sekolah": "aaww",
+      "id": "84f9"
+    },
+    {
+      "id": "a00c",
+      "nama": "wwwww",
+      "kelas": "wwww",
+      "jurusan": "ww",
+      "nisn": "wwwwwawww",
+      "asal_sekolah": "aaww"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+/* Container styling */
+.guru-data-container {
+  padding: 16px;
+  margin: auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.guru-data-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Table container styling */
+.MuiTableContainer-root {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.MuiTableCell-root {
+  word-break: break-word;
+  white-space: normal;
+  padding: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .guru-data-container {
+    padding: 8px;
+  }
+
+  .guru-data-title {
+    font-size: 1.4rem;
+  }
+
+  .MuiTableContainer-root {
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+
+  .MuiTableCell-root {
+    font-size: 0.9rem;
+    padding: 6px; /* Reduce padding for smaller screens */
+  }
+
+  .MuiButton-root {
+    font-size: 0.8rem; /* Adjust button text size */
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .guru-data-title {
+    font-size: 1.2rem;
+  }
+
+  .MuiTableCell-root {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+
+  .MuiButton-root {
+    font-size: 0.7rem;
+    padding: 4px 8px; /* Smaller button size */
+  }
+}
